@@ -1,9 +1,10 @@
 import React from 'react';
+import { Content, Header } from './style';
 
 export default function Home(): React.FunctionComponentElement<{}> {
   return (
-    <div>
-      <h1>To Do</h1>
-    </div>
+    <Content>
+      <Header>Lista de Tarefas</Header>
+    </Content>
   );
 }
