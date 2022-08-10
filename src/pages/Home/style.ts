@@ -7,8 +7,8 @@ export const Content = styled.div`
 `;
 
 export const Header = styled.h1`
-  color: #f2f2f2;
+  color: var(--color-five);
   text-align: center;
-  border-bottom: 1px solid #1c5052;
+  border-bottom: 1px solid var(--color-three);
   padding-bottom: 20px;
 `;
