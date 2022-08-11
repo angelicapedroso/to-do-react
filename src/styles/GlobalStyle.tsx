@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     --color-three: #1c5052;
     --color-four: #348e91;
     --color-five: #f2f2f2;
+    --font-base: 'Poppins', sans-serif;
   }
   * {
     margin: 0;
