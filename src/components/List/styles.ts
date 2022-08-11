@@ -10,7 +10,8 @@ const Container = styled.div(({ done }: ContainerProps) => (
   background-color: var(--color-three);
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 10px;z
+  max-width: 780px;
 
   input {
     width: 20px;

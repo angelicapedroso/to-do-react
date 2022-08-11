@@ -5,16 +5,23 @@ import { Item } from '../../types/Item';
 import { Content, Header } from './styles';
 
 export default function Home(): React.FunctionComponentElement<{}> {
-  const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Item 1', done: false },
-    { id: 2, name: 'Item 1', done: false },
-  ]);
+  const [list, setList] = useState<Item[]>([]);
+
+  const handleAddItem = (item: string) => {
+    const data = {
+      id: list.length + 1,
+      name: item,
+      done: false,
+    };
+    const newList = [...list, data];
+    setList(newList);
+  };
 
   return (
     <Content>
       <Header>Lista de Tarefas</Header>
 
-      <AddItem />
+      <AddItem handleAddItem={handleAddItem} />
 
       {
         list.map((item) => (

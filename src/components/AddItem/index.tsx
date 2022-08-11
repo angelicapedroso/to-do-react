@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PlusCircle } from 'phosphor-react';
 import Container from './styles';
 
-export default function AddItem(): React.FunctionComponentElement<{}> {
+type Props = {
+  handleAddItem: (item: string) => void;
+}
+
+export default function AddItem({ handleAddItem }: Props): React.FunctionComponentElement<{}> {
+  const [task, setTask] = useState('');
+
+  const handleClick = () => {
+    handleAddItem(task);
+    setTask('');
+  };
+
   return (
     <Container>
-      <PlusCircle size={32} className="add-icon" />
       <input
         type="text"
         placeholder="Adicione uma tarefa"
+        value={task}
+        onChange={({ target }) => setTask(target.value)}
       />
+      <button
+        type="button"
+        onClick={() => handleClick()}
+      >
+        <PlusCircle size={38} className="add-icon" />
+      </button>
     </Container>
   );
 }
