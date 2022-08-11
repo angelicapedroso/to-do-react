@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import List from '../../components/List';
+import AddItem from '../../components/AddItem';
 import { Item } from '../../types/Item';
 import { Content, Header } from './styles';
 
@@ -12,6 +13,9 @@ export default function Home(): React.FunctionComponentElement<{}> {
   return (
     <Content>
       <Header>Lista de Tarefas</Header>
+
+      <AddItem />
+
       {
         list.map((item) => (
           <List key={item.id} item={item} />
