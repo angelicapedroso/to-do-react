@@ -27,6 +27,11 @@ export default function Home(): React.FunctionComponentElement<{}> {
     setList(newList);
   };
 
+  const handleRemoveItem = (id: number) => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+  };
+
   return (
     <Content>
       <Header>Lista de Tarefas</Header>
@@ -35,7 +40,12 @@ export default function Home(): React.FunctionComponentElement<{}> {
 
       {
         list.map((item) => (
-          <List key={item.id} item={item} handleTaskChange={handleTaskChange} />
+          <List
+            key={item.id}
+            item={item}
+            handleTaskChange={handleTaskChange}
+            handleRemoveItem={handleRemoveItem}
+          />
         ))
       }
     </Content>

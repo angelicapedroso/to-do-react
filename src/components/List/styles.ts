@@ -12,6 +12,7 @@ const Container = styled.div(({ done }: ContainerProps) => (
   margin-bottom: 10px;
   border-radius: 10px;z
   max-width: 780px;
+  justify-content: space-between;
 
   input {
     width: 20px;
@@ -20,6 +21,17 @@ const Container = styled.div(({ done }: ContainerProps) => (
 
   label {
     text-decoration: ${done ? 'line-through' : 'inherit'};
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
   }
 `
 ));
