@@ -17,6 +17,16 @@ export default function Home(): React.FunctionComponentElement<{}> {
     setList(newList);
   };
 
+  const handleTaskChange = (id: number, done: boolean) => {
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        return { ...item, done };
+      }
+      return item;
+    });
+    setList(newList);
+  };
+
   return (
     <Content>
       <Header>Lista de Tarefas</Header>
@@ -25,7 +35,7 @@ export default function Home(): React.FunctionComponentElement<{}> {
 
       {
         list.map((item) => (
-          <List key={item.id} item={item} />
+          <List key={item.id} item={item} handleTaskChange={handleTaskChange} />
         ))
       }
     </Content>
