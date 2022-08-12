@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PlusCircle } from 'phosphor-react';
+import { ListPlus } from 'phosphor-react';
 import Container from './styles';
 
 type Props = {
@@ -9,7 +9,8 @@ type Props = {
 export default function AddItem({ handleAddItem }: Props): React.FunctionComponentElement<{}> {
   const [task, setTask] = useState('');
 
-  const handleClick = () => {
+  const handleClick = (e: React.FormEvent) => {
+    e.preventDefault();
     handleAddItem(task);
     setTask('');
   };
@@ -23,10 +24,10 @@ export default function AddItem({ handleAddItem }: Props): React.FunctionCompone
         onChange={({ target }) => setTask(target.value)}
       />
       <button
-        type="button"
-        onClick={() => handleClick()}
+        type="submit"
+        onClick={(e) => handleClick(e)}
       >
-        <PlusCircle size={38} className="add-icon" />
+        <ListPlus size={38} className="add-icon" />
       </button>
     </Container>
   );

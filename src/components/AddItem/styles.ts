@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   border: 2px solid var(--color-three);
   padding: 5px;

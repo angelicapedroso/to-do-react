@@ -1,4 +1,4 @@
-import { Trash } from 'phosphor-react';
+import { Pencil, Trash } from 'phosphor-react';
 import React from 'react';
 import { Item } from '../../types/Item';
 import Container from './styles';
@@ -26,10 +26,17 @@ export default function List({
 
       <button
         type="button"
+      >
+        <Pencil size={24} color="#f2f2f2" />
+      </button>
+
+      <button
+        type="button"
         onClick={() => handleRemoveItem(id)}
       >
         <Trash size={24} color="#f2f2f2" />
       </button>
+
     </Container>
   );
 }
