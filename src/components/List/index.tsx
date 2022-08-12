@@ -16,26 +16,30 @@ export default function List({
 }: Props): React.FunctionComponentElement<{}> {
   return (
     <Container done={done}>
-      <input
-        type="checkbox"
-        id="checkbox"
-        checked={done}
-        onChange={({ target }) => handleTaskChange(id, target.checked)}
-      />
-      <label htmlFor="checkbox">{name}</label>
+      <div>
+        <input
+          type="checkbox"
+          id="checkbox"
+          checked={done}
+          onChange={({ target }) => handleTaskChange(id, target.checked)}
+        />
+        <label htmlFor="checkbox">{name}</label>
+      </div>
 
-      <button
-        type="button"
-      >
-        <Pencil size={24} color="#f2f2f2" />
-      </button>
+      <div>
+        <button
+          type="button"
+        >
+          <Pencil size={24} color="#f2f2f2" />
+        </button>
 
-      <button
-        type="button"
-        onClick={() => handleRemoveItem(id)}
-      >
-        <Trash size={24} color="#f2f2f2" />
-      </button>
+        <button
+          type="button"
+          onClick={() => handleRemoveItem(id)}
+        >
+          <Trash size={24} color="#f2f2f2" />
+        </button>
+      </div>
 
     </Container>
   );
