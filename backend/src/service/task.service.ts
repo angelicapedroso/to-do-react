@@ -6,3 +6,8 @@ export const createService = async (title: string, done: boolean) => {
   })
   return task;
 };
+
+export const getAllService = async () => {
+  const tasks = await prisma.task.findMany();
+  return tasks;
+};

@@ -1,11 +1,11 @@
 import express from 'express';
 import httpErrorMiddleware from './middleware/http.error.middleware';
-import taskRouter from './route/task.routes';
+import taskRoutes from './routes/task.routes';
 
 const app = express();
 
 app.use(express.json());
-app.use('/task', taskRouter);
+app.use('/task', taskRoutes);
 
 app.use(httpErrorMiddleware);
 
