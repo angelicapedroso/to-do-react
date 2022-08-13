@@ -19,3 +19,7 @@ export const updateService = async (id: number, title: string, done: boolean) =>
   })
   return task;
 };
+
+export const deleteService = async (id: number) => {
+  return await prisma.task.delete({ where: { id } });
+}
