@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createService, getAllService } from "../service/task.service";
+import { createService, getAllService, updateService } from "../service/task.service";
 
 export const create = async (req: Request, res: Response) => {
   const { title, done } = req.body;
@@ -12,3 +12,9 @@ export const getAll = async (_req: Request, res: Response) => {
   return res.status(200).json(tasks);
 }
 
+export const update = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { title, done } = req.body;
+  const task = await updateService(Number(id), title, done);
+  return res.status(200).json(task);
+};
