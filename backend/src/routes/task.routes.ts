@@ -1,5 +1,7 @@
-import { Router } from "express";
-import { create, destroy, getAll, update } from "../controller/task.controller";
+import { Router } from 'express';
+import {
+  create, destroy, getAll, update,
+} from '../controller/task.controller';
 
 const router = Router();
 

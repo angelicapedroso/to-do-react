@@ -1,9 +1,9 @@
-import prisma from "../prisma";
+import prisma from '../prisma';
 
 export const createService = async (title: string, done: boolean) => {
   const task = await prisma.task.create({
-    data: { title, done }
-  })
+    data: { title, done },
+  });
   return task;
 };
 
@@ -15,11 +15,11 @@ export const getAllService = async () => {
 export const updateService = async (id: number, title: string, done: boolean) => {
   const task = await prisma.task.update({
     where: { id },
-    data: { title, done }
-  })
+    data: { title, done },
+  });
   return task;
 };
 
 export const deleteService = async (id: number) => {
-  return await prisma.task.delete({ where: { id } });
-}
+  await prisma.task.delete({ where: { id } });
+};
