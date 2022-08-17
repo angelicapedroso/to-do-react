@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import List from '../../components/List';
 import AddItem from '../../components/AddItem';
 import { Item } from '../../types/Item';
 import { Content, Header } from './styles';
+import api from '../../services/api';
 
 export default function Home(): React.FunctionComponentElement<{}> {
   const [list, setList] = useState<Item[]>([]);
 
-  const handleAddItem = (item: string) => {
-    const data = {
-      id: list.length + 1,
-      name: item,
-      done: false,
-    };
-    const newList = [...list, data];
-    setList(newList);
+  const getTask = async () => {
+    const response = await api.get('/task');
+    setList(response.data);
+  };
+
+  useEffect(() => {
+    getTask();
+  }, []);
+
+  const handleAddItem = async (title: string) => {
+    await api.post('/task', title);
+    getTask();
   };
 
   const handleTaskChange = (id: number, done: boolean) => {
@@ -27,9 +32,9 @@ export default function Home(): React.FunctionComponentElement<{}> {
     setList(newList);
   };
 
-  const handleRemoveItem = (id: number) => {
-    const newList = list.filter((item) => item.id !== id);
-    setList(newList);
+  const handleRemoveItem = async (id: number) => {
+    await api.delete(`/task/${id}`);
+    getTask();
   };
 
   return (
