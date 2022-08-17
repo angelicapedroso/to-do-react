@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
-import HttpException from '../utils/http.exception';
+import { NextFunction, Request, Response } from 'express';
+import HttpException from '../share/http.exception';
 
-const httpErrorMiddleware = (err: Error, _req: Request, res: Response) => {
+const httpErrorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
   const { status, message } = err as HttpException;
   res.status(status || 500).json({ message });
 };

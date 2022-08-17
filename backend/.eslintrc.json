@@ -11,8 +11,9 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "import/extensions": "off"
-    // "no-unused-vars": "off"
+    "import/extensions": "off",
+    "no-console": "off",
+    "no-unused-vars": "off"
   },
   "settings": {
     "import/resolver": {

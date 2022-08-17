@@ -1,4 +1,5 @@
 import express from 'express';
+import 'express-async-errors';
 import httpErrorMiddleware from './middleware/http.error.middleware';
 import taskRoutes from './routes/task.routes';
 
