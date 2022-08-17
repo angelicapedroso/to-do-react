@@ -17,8 +17,9 @@ export default function Home(): React.FunctionComponentElement<{}> {
     getTask();
   }, []);
 
-  const handleAddItem = async (title: string) => {
-    await api.post('/task', title);
+  const handleAddItem = async (item: string) => {
+    const data = { title: item };
+    await api.post('/task', data);
     getTask();
   };
 
