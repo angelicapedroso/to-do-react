@@ -1,6 +1,6 @@
 import prisma from '../prisma';
 import { ITask } from '../interface/task.interface';
-import isValidTitle from '../utils/validate.fields';
+import isValidTitle from '../validation/task.validation';
 
 export const create = async (task: ITask): Promise<ITask> => {
   isValidTitle(task.title);
