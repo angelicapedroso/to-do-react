@@ -23,14 +23,15 @@ export default function Home(): React.FunctionComponentElement<{}> {
     getTask();
   };
 
-  const handleTaskChange = (id: number, done: boolean) => {
-    const newList = list.map((item) => {
+  const handleTaskChange = async (id: number, done: boolean) => {
+    list.map((item) => {
       if (item.id === id) {
         return { ...item, done };
       }
       return item;
     });
-    setList(newList);
+    await api.put(`/task/${id}`, { done });
+    getTask();
   };
 
   const handleRemoveItem = async (id: number) => {
