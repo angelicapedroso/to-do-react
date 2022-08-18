@@ -1,5 +1,6 @@
 import { ITask } from '../interface/task.interface';
 import prisma from '../prisma';
+import HttpException from '../share/http.exception';
 import isValidTitle from '../utils/validate.fields';
 
 export const createService = async (task: ITask): Promise<ITask> => {
@@ -13,12 +14,9 @@ export const getAllService = async (): Promise<object> => {
   return tasks;
 };
 
-export const updateService = async (id: number, title: string, done: boolean): Promise<object> => {
-  const task = await prisma.task.update({
-    where: { id },
-    data: { title, done },
-  });
-  return task;
+export const updateService = async (id: number, task: ITask): Promise<ITask> => {
+  const result = await prisma.task.update({ where: { id }, data: task });
+  return result;
 };
 
 export const deleteService = async (id: number): Promise<void> => {
