@@ -1,5 +1,5 @@
-import { ITask } from '../interface/task.interface';
 import prisma from '../prisma';
+import { ITask } from '../interface/task.interface';
 import isValidTitle from '../utils/validate.fields';
 
 export const createService = async (task: ITask): Promise<ITask> => {

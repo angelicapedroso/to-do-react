@@ -19,8 +19,8 @@ export const update = async (req: Request, res: Response): Promise<Response> => 
   return res.status(200).json(task);
 };
 
-export const destroy = async (req: Request, res: Response) => {
+export const destroy = async (req: Request, res: Response): Promise<Response> => {
   const { id } = req.params;
   await deleteService(Number(id));
-  return res.status(201).json({ message: 'Tarefa excluída com sucesso' });
+  return res.status(204).end();
 };
