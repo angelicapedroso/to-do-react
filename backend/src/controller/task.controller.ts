@@ -2,14 +2,13 @@ import { Request, Response } from 'express';
 import {
   createService, getAllService, updateService, deleteService,
 } from '../service/task.service';
-import HttpException from '../share/http.exception';
 
 export const create = async (req: Request, res: Response): Promise<Response> => {
   const task = await createService(req.body);
   return res.status(201).json(task);
 };
 
-export const getAll = async (_req: Request, res: Response) => {
+export const getAll = async (_req: Request, res: Response): Promise<Response> => {
   const tasks = await getAllService();
   return res.status(200).json(tasks);
 };
