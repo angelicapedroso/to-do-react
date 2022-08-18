@@ -10,7 +10,7 @@ type Props = {
 }
 
 export default function List({
-  item: { id, name, done },
+  item: { id, title, done },
   handleTaskChange,
   handleRemoveItem,
 }: Props): React.FunctionComponentElement<{}> {
@@ -23,7 +23,7 @@ export default function List({
           checked={done}
           onChange={({ target }) => handleTaskChange(id, target.checked)}
         />
-        <label htmlFor="checkbox">{name}</label>
+        <label htmlFor="checkbox">{title}</label>
       </div>
 
       <div>
