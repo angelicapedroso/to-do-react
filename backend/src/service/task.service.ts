@@ -1,6 +1,7 @@
 import prisma from '../prisma';
 import { ITask } from '../interface/task.interface';
 import isValidTitle from '../validation/task.validation';
+import HttpException from '../share/http.exception';
 
 export const create = async (task: ITask): Promise<ITask> => {
   isValidTitle(task.title);
@@ -14,10 +15,18 @@ export const getAll = async (): Promise<Array<ITask>> => {
 };
 
 export const update = async (id: number, task: ITask): Promise<ITask> => {
-  const result = await prisma.task.update({ where: { id }, data: task });
-  return result;
+  try {
+    const result = await prisma.task.update({ where: { id }, data: task });
+    return result;
+  } catch (error) {
+    throw new HttpException(404, 'Id não encontrado');
+  }
 };
 
 export const destroy = async (id: number): Promise<void> => {
-  await prisma.task.delete({ where: { id } });
+  try {
+    await prisma.task.delete({ where: { id } });
+  } catch (error) {
+    throw new HttpException(404, 'Id não encontrado');
+  }
 };
