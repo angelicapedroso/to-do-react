@@ -1,13 +1,11 @@
 import { Router } from 'express';
-import {
-  create, destroy, getAll, update,
-} from '../controller/task.controller';
+import * as controller from '../controller/task.controller';
 
 const router = Router();
 
-router.post('/', create);
-router.get('/', getAll);
-router.put('/:id', update);
-router.delete('/:id', destroy);
+router.post('/', controller.create);
+router.get('/', controller.getAll);
+router.put('/:id', controller.update);
+router.delete('/:id', controller.destroy);
 
 export default router;

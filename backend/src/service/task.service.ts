@@ -1,34 +1,32 @@
 import prisma from '../prisma';
+import { ITask } from '../interface/task.interface';
+import isValidTitle from '../validation/task.validation';
 import HttpException from '../share/http.exception';
 
-const isValidTitle = (title: string): Boolean => {
-  if (!title || typeof title !== 'string') return false;
-  return true;
+export const create = async (task: ITask): Promise<ITask> => {
+  isValidTitle(task.title);
+  const result = await prisma.task.create({ data: task });
+  return result;
 };
 
-export const createService = async (title: string, done: boolean): Promise<object> => {
-  if (!isValidTitle(title)) {
-    throw new HttpException(400, 'Formato inválido');
+export const getAll = async (): Promise<Array<ITask>> => {
+  const result = await prisma.task.findMany();
+  return result;
+};
+
+export const update = async (id: number, task: ITask): Promise<ITask> => {
+  try {
+    const result = await prisma.task.update({ where: { id }, data: task });
+    return result;
+  } catch (error) {
+    throw new HttpException(404, 'Id não encontrado');
   }
-  const task = await prisma.task.create({
-    data: { title, done },
-  });
-  return task;
 };
 
-export const getAllService = async (): Promise<object> => {
-  const tasks = await prisma.task.findMany();
-  return tasks;
-};
-
-export const updateService = async (id: number, title: string, done: boolean): Promise<object> => {
-  const task = await prisma.task.update({
-    where: { id },
-    data: { title, done },
-  });
-  return task;
-};
-
-export const deleteService = async (id: number): Promise<void> => {
-  await prisma.task.delete({ where: { id } });
+export const destroy = async (id: number): Promise<void> => {
+  try {
+    await prisma.task.delete({ where: { id } });
+  } catch (error) {
+    throw new HttpException(404, 'Id não encontrado');
+  }
 };

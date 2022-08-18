@@ -1,28 +1,24 @@
 import { Request, Response } from 'express';
-import {
-  createService, getAllService, updateService, deleteService,
-} from '../service/task.service';
+import * as service from '../service/task.service';
 
-export const create = async (req: Request, res: Response) => {
-  const { title, done } = req.body;
-  const task = await createService(title, done);
+export const create = async (req: Request, res: Response): Promise<Response> => {
+  const task = await service.create(req.body);
   return res.status(201).json(task);
 };
 
-export const getAll = async (_req: Request, res: Response) => {
-  const tasks = await getAllService();
+export const getAll = async (_req: Request, res: Response): Promise<Response> => {
+  const tasks = await service.getAll();
   return res.status(200).json(tasks);
 };
 
-export const update = async (req: Request, res: Response) => {
+export const update = async (req: Request, res: Response): Promise<Response> => {
   const { id } = req.params;
-  const { title, done } = req.body;
-  const task = await updateService(Number(id), title, done);
+  const task = await service.update(Number(id), req.body);
   return res.status(200).json(task);
 };
 
-export const destroy = async (req: Request, res: Response) => {
+export const destroy = async (req: Request, res: Response): Promise<Response> => {
   const { id } = req.params;
-  await deleteService(Number(id));
-  return res.status(201).json({ message: 'Tarefa excluída com sucesso' });
+  await service.destroy(Number(id));
+  return res.status(204).end();
 };
