@@ -3,9 +3,8 @@ import {
   createService, getAllService, updateService, deleteService,
 } from '../service/task.service';
 
-export const create = async (req: Request, res: Response) => {
-  const { title, done } = req.body;
-  const task = await createService(title, done);
+export const create = async (req: Request, res: Response): Promise<Response> => {
+  const task = await createService(req.body);
   return res.status(201).json(task);
 };
 
