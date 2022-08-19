@@ -14,19 +14,18 @@ export const getAll = async (): Promise<Array<ITask>> => {
   return result;
 };
 
+export const getIdIsValid = async (id: number): Promise<void> => {
+  const result = await prisma.task.findUnique({ where: { id } });
+  if (!result) throw new HttpException(404, 'Id not found');
+};
+
 export const update = async (id: number, task: ITask): Promise<ITask> => {
-  try {
-    const result = await prisma.task.update({ where: { id }, data: task });
-    return result;
-  } catch (error) {
-    throw new HttpException(404, 'Id não encontrado');
-  }
+  await getIdIsValid(id);
+  const result = await prisma.task.update({ where: { id }, data: task });
+  return result;
 };
 
 export const destroy = async (id: number): Promise<void> => {
-  try {
-    await prisma.task.delete({ where: { id } });
-  } catch (error) {
-    throw new HttpException(404, 'Id não encontrado');
-  }
+  await getIdIsValid(id);
+  await prisma.task.delete({ where: { id } });
 };
