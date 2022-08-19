@@ -1,7 +1,7 @@
-import prisma from "../prisma";
-import { ITask } from "../interface/task.interface";
-import isValidTitle from "../validation/task.validation";
-import HttpException from "../share/http.exception";
+import prisma from '../prisma';
+import { ITask } from '../interface/task.interface';
+import isValidTitle from '../validation/task.validation';
+import HttpException from '../share/http.exception';
 
 export const create = async (task: ITask): Promise<ITask> => {
   isValidTitle(task.title);
@@ -16,7 +16,7 @@ export const getAll = async (): Promise<Array<ITask>> => {
 
 export const getIdIsValid = async (id: number): Promise<void> => {
   const result = await prisma.task.findUnique({ where: { id } });
-  if (!result) throw new HttpException(404, 'Id não encontrado');
+  if (!result) throw new HttpException(404, 'Id not found');
 };
 
 export const update = async (id: number, task: ITask): Promise<ITask> => {
