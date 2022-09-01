@@ -28,7 +28,7 @@ Meu objetivo ao iniciar este projeto foi treinar minhas habilidades com front-en
 
 3. Entre na pasta **backend** e execute o comando ` npm install && npm start `
 
-4. Após o passo 3 execute o comando ` npx prisma init ` na pasta backend para iniciar o prisma. Isso irá gerar o arquivo `.env` e deverá preencher a URL de conexão com o banco de dados.
+4. Após o passo 3, execute o comando ` npx prisma init ` na pasta backend para iniciar o prisma. Isso irá gerar o arquivo `.env` e deverá preencher a URL de conexão com o banco de dados.
 
 ``` js
 // A variável tem o seguinte formato:
