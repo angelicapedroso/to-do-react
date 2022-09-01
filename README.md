@@ -37,7 +37,7 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA"
 // A variável virá preenchida da seguinte forma:
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 ```
-**Deverão ser preenchido os seguintes campos:**
+**Deverão ser preenchidos os seguintes campos:**
 
 **USER**: O nome do usuário do banco de dados
 
