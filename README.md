@@ -13,7 +13,7 @@ Meu objetivo ao iniciar este projeto foi treinar minhas habilidades com front-en
 * TypeScript
 * Styled Components 
 
-#### Back-end
+### Back-end
 * Node.js
 * Express.js
 * TypeScript
