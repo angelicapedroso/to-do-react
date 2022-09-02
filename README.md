@@ -1,13 +1,13 @@
-## To-Do App
+# To-Do App
 
 Esta é uma aplicação que tem como objetivo a possibilidade de o usuário criar, listar, editar e excluir uma tarefa. 
 
 Meu objetivo ao iniciar este projeto foi treinar minhas habilidades com front-end e back-end, criando um projeto full-stack do zero, realizando um CRUD e fazendo a integração entre as duas partes.
 
 
-### Tecnologias utilizadas
+## Tecnologias utilizadas
 
-#### Front-end
+### Front-end
 * React.js
 * Vite
 * TypeScript
@@ -20,7 +20,7 @@ Meu objetivo ao iniciar este projeto foi treinar minhas habilidades com front-en
 * Prisma
 * Postgres
 
-### Como executar
+## Como executar
 
 1. Clone o repositório
 
@@ -48,3 +48,7 @@ DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=pub
 **PORT**: A porta em que o servidor de banco de dados está sendo executado
 
 **DATABASE**: O nome do banco de dados
+
+## Para ser implementado
+
+Tenho o objetivo de continuar evoluindo com o projeto, e o próximo passo após realizar algumas melhorias com o que já está definido, será de fazer a implementação da possibilidade de criação de usuário, juntamente com autenticação, relacionando-o com suas tarefas.
