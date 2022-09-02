@@ -1,26 +1,26 @@
 ## To-Do App
 
-Esta é uma aplicação de to-do list, que tem como objetivo a possibilidade de o usuário criar, listar, editar e excluir uma tarefa. 
+Esta é uma aplicação que tem como objetivo a possibilidade de o usuário criar, listar, editar e excluir uma tarefa. 
 
 Meu objetivo ao iniciar este projeto foi treinar minhas habilidades com front-end e back-end, criando um projeto full-stack do zero, realizando um CRUD e fazendo a integração entre as duas partes.
 
 
-## Tecnologias utilizadas
+### Tecnologias utilizadas
 
-### Front-end
+#### Front-end
 * React.js
 * Vite
 * TypeScript
 * Styled Components 
 
-### Back-end
+#### Back-end
 * Node.js
 * Express.js
 * TypeScript
 * Prisma
 * Postgres
 
-## Como executar
+### Como executar
 
 1. Clone o repositório
 
